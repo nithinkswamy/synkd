@@ -106,10 +106,15 @@ class PHomepage extends React.Component {
 
 
   async LoadChips(roomid){
-    
-    var data = JSON.stringify({roomid: roomid});
-    const response = await retrieveSwitchControllers(data);
 
+    var data = JSON.stringify({roomid: roomid});
+    let response = undefined
+    try{
+      response = await retrieveSwitchControllers(data);
+    }catch(e){
+      console.log(e)
+    }
+  
     
     if(response !== undefined){
       console.log(response[0]);
