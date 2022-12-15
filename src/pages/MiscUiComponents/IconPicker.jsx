@@ -712,8 +712,42 @@ backButton(){ this.props.onDidDismiss(this.props.properties);}
 
 {/* Rooms============================================================================== */}
 
+<IonHeader class="ion-no-border">
+                 <IonToolbar  mode="ios" >
+                 
+        
+                            
+               
+                  <IonTitle slot="secondary">DEVICE TYPE</IonTitle>
+                  </IonToolbar>
+</IonHeader>
+<IonRow className="icon-row">
+                      <IonCol className="icon-col" size="4">
+                        <IonButton
+                          fill="solid"
+                          className="icon-btn ion-no-padding"
+                          shape="round"
+                          color="light"
+                          onClick={() => this.Room(9)}
+                        >
+                        <IonImg src={toilet}  style={{padding: "25%"}}></IonImg>
 
-
+                        </IonButton>
+                  
+                      </IonCol>
+                      <IonCol className="icon-col" size="4">
+                        <IonButton
+                          fill="solid"
+                          className="icon-btn ion-no-padding"
+                          shape="round"
+                          color="light"
+                          onClick={() => this.Room(10)}
+                        >
+                          <IonImg src={bar} style={{padding: "25%"}}></IonImg>
+                        </IonButton>
+                      </IonCol>
+                     
+                    </IonRow>
           
         </IonGrid>
 
