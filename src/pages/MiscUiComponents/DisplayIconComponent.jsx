@@ -32,6 +32,9 @@ import closet from "../../images/device-icons/room/closet.svg"
 import living from "../../images/device-icons/room/livingRoom.svg"
 import bar from "../../images/device-icons/room/bar.png"
 import shoeRack from "../../images/device-icons/room/shoeRack.svg"
+import fanControl from "../../images/device-icons/room/fanController.jpg"
+import twoWaySwitch from "../../images/device-icons/room/twoWaySwitch.jpg"
+
 //Room-----------------------------------------------------------------
 
 
@@ -125,6 +128,12 @@ class DisplayIconComponent extends React.Component{
 
                     case 10:
                         return(<IonImg src={bar}  style={{padding: "25%"}}></IonImg>);
+
+                    case 11:
+                        return(<IonImg src={fanControl}  style={{padding: "25%"}}></IonImg>);
+
+                    case 12:
+                        return(<IonImg src={twoWaySwitch}  style={{padding: "25%"}}></IonImg>);
 
                 }
                 break;

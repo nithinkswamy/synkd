@@ -49,6 +49,10 @@ import closet from "../../images/device-icons/room/closet.svg"
 import living from "../../images/device-icons/room/livingRoom.svg"
 import bar from "../../images/device-icons/room/bar.png"
 import shoeRack from "../../images/device-icons/room/shoeRack.svg"
+import fanControl from "../../images/device-icons/room/fanController.jpg"
+import twoWaySwitch from "../../images/device-icons/room/twoWaySwitch.jpg"
+
+
 //Room-----------------------------------------------------------------
 
 
@@ -712,8 +716,42 @@ backButton(){ this.props.onDidDismiss(this.props.properties);}
 
 {/* Rooms============================================================================== */}
 
+<IonHeader class="ion-no-border">
+                 <IonToolbar  mode="ios" >
+                 
+        
+                            
+               
+                  <IonTitle slot="secondary">DEVICE TYPE</IonTitle>
+                  </IonToolbar>
+</IonHeader>
+<IonRow className="icon-row">
+                      <IonCol className="icon-col" size="4">
+                        <IonButton
+                          fill="solid"
+                          className="icon-btn ion-no-padding"
+                          shape="round"
+                          color="light"
+                          onClick={() => this.Room(11)}
+                        >
+                        <IonImg src={fanControl}  style={{padding: "25%"}}></IonImg>
 
-
+                        </IonButton>
+                  
+                      </IonCol>
+                      <IonCol className="icon-col" size="4">
+                        <IonButton
+                          fill="solid"
+                          className="icon-btn ion-no-padding"
+                          shape="round"
+                          color="light"
+                          onClick={() => this.Room(12)}
+                        >
+                          <IonImg src={twoWaySwitch} style={{padding: "25%"}}></IonImg>
+                        </IonButton>
+                      </IonCol>
+                     
+                    </IonRow>
           
         </IonGrid>
 

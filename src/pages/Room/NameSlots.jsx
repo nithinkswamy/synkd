@@ -9,8 +9,16 @@ import {
   IonInput,
   IonContent,
   IonItem,
-  IonToast,
+  IonToast,IonList, IonPopover,
+  IonCol,IonRow,IonGrid,IonSkeletonText, IonPage 
+  
 } from "@ionic/react";
+// import  IonAccordi, IonLabel  from '@ionic/react';
+// import IonAccordion from "@ionic/react";
+// import IonAccordionGroup from "@ionic/react";
+// import IonLabel from "@ionic/react";
+
+
 import React from "react";
 import { closeOutline } from "ionicons/icons";
 import DisplayIconComponent from "../MiscUiComponents/DisplayIconComponent"
@@ -31,7 +39,8 @@ class NameSlots extends React.Component {
       mac: this.props!==undefined?this.props.properties.mac:"",
       icon: this.props!==undefined?this.props.icon: "",
       slotnumber: "",
-      loading: false
+      loading: false,
+      isOpen:false
     };
   }
 
@@ -93,11 +102,74 @@ class NameSlots extends React.Component {
       show: !this.state.show,
     });
   }
+//   Room(int)  
+// {this.props.component({ComponentType: 2, ComponentProperties: this.props.properties, icon: {iconname: "ROOM", int: int}}); }
+        
+       
+  
+  
+  
+  popup(){
+  
+  let btn=[];
+  let loading = this.state.loading;
+  let body;
+  if(loading){
+   
+     
+      for(var j=0; j<10;j++){
+         btn.push(<IonCol className="phome-col ion-align-self-center" size="4" >
+                      <IonButton 
+                      fill="clear"
+                      size="large"
+                      expand="block">
+                      <IonSkeletonText animated style={{   width: "70px", height: "70px" }}/>
+                      </IonButton>  
+                        
+                        <IonSkeletonText animated style={{margin: '25%', width: '50%' }} />
+                    </IonCol>);
+      }
+    
+    body=(<IonGrid className="phome-grid">
+              <IonRow className="phome-row">
+                {btn}
+              </IonRow>
+          </IonGrid>);
+
+  }
+  // else{  body=(<IonGrid className="phome-grid">
+  //                 <IonRow className="phome-row">
+  //                   {this.state.items.map((item) => {
+  //                     return (
+  //                       <IonCol className="phome-col ion-align-self-center" size="4">
+  //                         <IonButton
+  //                           fill="solid"
+  //                           className="roomBtn ion-no-padding"
+  //                           shape="round"
+  //                           size="large"
+  //                           expand="block"
+  //                           color="light-tint"
+  //                           id={item._id}
+  //                           onClick={() => this.displayfn(item)}>
+  //                           <DisplayIconComponent
+  //                             icon={item.iconname}
+  //                             size="large"
+  //                             className="io-icon"
+  //                           />
+  //                         </IonButton>
+  //                         <br />
+  //                         <IonLabel className="icon_label1">{item.roomname}</IonLabel>
+  //                       </IonCol>
+  //                     );
+  //                   })}
+}
+
+
 
   render() {
     return (
     
-        <IonContent>
+        <IonContent style={{height:"700px"}}>
         <IonHeader className="ion-no-border">
 
             <div className="titleDiv">
@@ -123,7 +195,7 @@ class NameSlots extends React.Component {
               size="large"
               expand="block"
               color="light"
-              onClick={() =>  this.props.component({ComponentType: 1, ComponentProperties: this.props.properties})}
+              onClick={() =>  this.props.component({ComponentType:1, ComponentProperties: this.props.properties})}
             >
               <DisplayIconComponent icon={this.state.icon}></DisplayIconComponent>
             </IonButton>
@@ -142,6 +214,45 @@ class NameSlots extends React.Component {
               }}
             ></IonInput>
           </IonItem>
+
+
+        
+
+          
+       {/* {this.props.icon.iconname==='ROOM' && this.props.icon.int>10 ?  */}
+       <>
+      <select className="select-box" >
+        <option hidden value="opt1" style={{color:"grey"}} >Select a option......</option>
+        <option value="opt1">opt2</option>
+        <option value="opt1">opt1</option>
+        <option value="opt1">opt1</option>
+        <option value="opt1">opt1</option>
+
+
+        </select>
+                  
+      </>
+      {/* : null} */}
+  
+
+
+
+{/* 
+      {this.state.isOpen ? 
+     
+      
+          
+      
+      <div className="popup-container">
+                <div className='wrapper'>
+                  
+            
+                </div>
+            </div>
+   :null } */}
+
+
+
           <IonItem className="rn-item">
             <IonInput
               className="rn-input"
@@ -155,6 +266,33 @@ class NameSlots extends React.Component {
               }}
             ></IonInput>
           </IonItem>
+          {/* {this.props.icon.iconname==='ROOM' && this.props.icon.int>10 ?  */}
+          <div style={{display:"flex",marginTop:"30px"}} >
+            <input className="checkbox" type="checkbox" value="" id=""/>
+          <label className="checkbox-name">check for primary device</label>
+          
+        <IonButton
+              className="rn-btn"
+              buttonType="button"
+              shape="round"
+              size="default"
+              color="primary"
+              alignItems="left"
+              onClick={() => {
+                this.props.component({ComponentType: "GROUPS",
+                   ComponentProperties: this.props.properties})
+                // this.setState({
+                //   isOpen:true
+                // });
+                // this.Room();
+                this.popup();
+              // this.props.onDidDismiss(true)
+              }}
+            >
+              Select Device
+            </IonButton>
+            </div> 
+            {/* : null} */}
           <IonItem lines="none" className="loginbtn_item">
             <IonButton
               className="rn-btn"

@@ -262,7 +262,7 @@ async getChipData(mac){
     if(loading){
      
        
-        for(var j=0; j<9;j++){
+        for(var j=0; j<10;j++){
            btn.push(<IonCol className="phome-col ion-align-self-center" size="4" >
                         <IonButton 
                         fill="clear"
